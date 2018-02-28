@@ -10,6 +10,10 @@ module.exports = {
   module: {
     loaders: [
       {
+        test: /\.css$/,
+        loader: 'style-loader'
+      },
+      {
         test: /\.html$/,
         loader: "file?name=[name].[ext]"
       },

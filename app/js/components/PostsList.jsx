@@ -1,25 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import styles from '../styles/postsList'
 
-const titleStyle = {
-  fontWeight: 'bold',
-  textTransform: 'uppercase'
-};
-
-const postContainer = {
-  width: '300px',
-  border: '1px solid #dadada',
-  borderRadius: '5px',
-  padding: '15px',
-  marginBottom: '15px'
-}
-
-const authorWrapper = {
-  color: '#8d8d8d',
-  fontSize: '12px',
-  fontStyle: 'italic',
-  textAlign: 'right',
-}
 
 const Post = ({
   onClick,
@@ -27,9 +9,9 @@ const Post = ({
   text,
   title
   }) => (
-  <div style = {postContainer}>
-    <div style = {titleStyle}>{title}</div>
-    <div style = {authorWrapper}>by {author}</div>
+  <div style = {styles.postContainer}>
+    <div style = {styles.titleStyle}>{title}</div>
+    <div style = {styles.authorWrapper}>by {author}</div>
     <div>Text: {text}</div>
   </div>
 );

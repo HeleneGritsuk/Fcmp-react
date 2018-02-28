@@ -1,14 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { setVisibilityFilter, setSearchTerm } from '../actions';
-
-
-const linkStyle = {
-  lineHeight: '30px',
-  textDecoration: 'none'
-};
-
+import { setSearchTerm } from '../actions/actionCreators';
 
 const mapStateProps = (
   state

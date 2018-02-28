@@ -1,28 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { addPost } from '../actions';
+import { addPost } from '../actions/actionCreators';
 
-const inputWrapper = {
-  width: '47%'
-};
-const input = {
-  width: '100%'
-};
-const formWrapper = {
-  paddingLeft: '40px',
-  width: '500px'
-}
-const formHeader = {
-  display: 'flex',
-  justifyContent: 'space-between'
-}
-const textArea = {
-  width: '100%'
-}
-const textAreaWrapper = {
-  width: '100%'
-}
+import styles from '../styles/addPost'
 
 let AddPost = ({ dispatch }) => {
   let author;
@@ -30,22 +11,22 @@ let AddPost = ({ dispatch }) => {
   let postTitle;
 
   return (
-    <div style = {formWrapper}>
-      <div style = {formHeader}>
-        <div style= {inputWrapper}>
+    <div style = {styles.formWrapper}>
+      <div style = {styles.formHeader}>
+        <div style= {styles.inputWrapper}>
           <div> Author:</div>
-          <input ref={node => { author = node;  }} style= {input} />
+          <input ref={node => { author = node;  }} style= {styles.input} />
         </div>
-        <div style= {inputWrapper}>
+        <div style= {styles.inputWrapper}>
           <div> Title:</div>
-          <input ref={node => { postTitle = node;  }} style= {input} />
+          <input ref={node => { postTitle = node;  }} style= {styles.input} />
         </div>
       </div>
-      <div style= {textAreaWrapper}>
+      <div style= {styles.textAreaWrapper}>
         <div> Text:</div>
         <textarea ref={node => {
           textInput = node;
-        }} style= {textArea} >
+        }} style= {styles.textArea} >
         </textarea>
       </div>
       <div>
