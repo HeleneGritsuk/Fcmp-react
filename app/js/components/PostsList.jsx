@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import styles from '../styles/postsList'
+import styles from '../styles/postsList.css.js'
 
 
 const Post = ({

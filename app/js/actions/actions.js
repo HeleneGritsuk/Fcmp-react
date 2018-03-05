@@ -1,2 +1,0 @@
-export const ADD_POST = 'ADD_POST'
-export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER'

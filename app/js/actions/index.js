@@ -1,4 +1,5 @@
-import { ADD_POST, SET_VISIBILITY_FILTER } from './actions';
+const ADD_POST = 'ADD_POST'
+const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER'
 
 let nextTodoId = 0;
 

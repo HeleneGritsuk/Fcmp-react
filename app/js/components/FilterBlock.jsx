@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { setSearchTerm } from '../actions/actionCreators';
+import { setSearchTerm } from '../actions';
 
 const mapStateProps = (
   state
