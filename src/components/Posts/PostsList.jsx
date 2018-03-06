@@ -1,41 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import styles from '../styles/postsList.css.js'
 
 
-const Post = ({
-  onClick,
-  author,
-  text,
-  title
-  }) => (
-  <div style = {styles.postContainer}>
-    <div style = {styles.titleStyle}>{title}</div>
-    <div style = {styles.authorWrapper}>by {author}</div>
-    <div>Text: {text}</div>
-  </div>
-);
+import Posts from './Posts.jsx';
 
-const PostList = ({
-  posts,
-  onTodoClick
-  }) => (
-  <ul>
-    {
-      posts.map(todo =>
-        <Post
-          key={todo.id}
-          {...todo}
-        />
-      )}
-  </ul>
-);
+class PostList extends React.Component {
+  render() {
+    const { posts } = this.props;
+
+    return (
+      <Posts posts = {posts}/>
+    );
+  }
+}
+
 
 const getVisiblePosts = (
   posts,
   filter
 ) => {
-
   switch (filter) {
     case '':
       return posts;
@@ -44,7 +27,7 @@ const getVisiblePosts = (
         return item.author.toLowerCase().search(filter) !== -1;
       });
   }
-}
+};
 
 const mapStateToProps = (
   state

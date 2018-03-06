@@ -10,4 +10,4 @@ const visibilityFilter = (
   }
 };
 
-export default visibilityFilter
+export default visibilityFilter;

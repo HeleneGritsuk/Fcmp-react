@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { setSearchTerm } from '../actions';
+import { setSearchTerm } from '../../redux/actions';
+import Filter from './Filter.jsx';
 
 const mapStateProps = (
   state
@@ -23,19 +24,15 @@ const mapDispatchProps = (
   };
 };
 
-const FilterList = ({
-  visibilityFilter,
-  onFilterChange
+class FilterList extends React.Component {
+  render() {
+    const { onFilterChange } = this.props;
 
-}) => (
-  <p>
-    Search:
-    {' '}
-    <input ref={node => { searchInput = node;  }} onChange={() => onFilterChange(searchInput.value)}/>
-  </p>
-);
-let searchInput;
-
+    return (
+      <Filter onInputChange = {onFilterChange}/>
+    );
+  }
+}
 
 export default connect(
   mapStateProps,
