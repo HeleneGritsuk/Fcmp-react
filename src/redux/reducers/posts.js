@@ -2,10 +2,10 @@ const post = (state, action) => {
   switch (action.type) {
     case 'ADD_POST':
       return {
-        id: action.id,
-        author: action.author,
-        text: action.text,
-        title: action.title
+        id: action.payload.id,
+        author: action.payload.author,
+        text: action.payload.text,
+        title: action.payload.title
       };
 
     default:
