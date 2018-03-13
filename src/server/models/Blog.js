@@ -3,8 +3,9 @@ const Schema = mongoose.Schema;
 
 // установка схемы
 const blogScheme = new Schema({
-    text: String,
-    title: String
+  author:String,
+  text: String,
+  title: String
 });
 
 module.exports = mongoose.model('Blog', blogScheme);

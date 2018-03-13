@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { addPost } from '../../redux/actions';
+import { manualBlogSend } from '../../redux/actions';
 
 import AddPostForm from './AddPostForm.jsx';
 
@@ -17,8 +17,8 @@ class AddPost extends React.Component {
 
 const mapDispatchProps = (dispatch) => {
   return {
-    onClick: (author, textInput, postTitle) => {
-      dispatch(addPost(author, textInput, postTitle));
+    onClick: (author, text, title) => {
+      dispatch(manualBlogSend({ author, text, title }));
     }
   };
 };

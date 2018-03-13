@@ -8,6 +8,7 @@ import secrets from './config/secrets';
 import configurePassport from './config/passport';
 import configureExpress from './config/express';
 import users from './controllers/users';
+import blogs from './controllers/blogs';
 import './models/User';
 
 // -------------------------------------------
@@ -58,7 +59,8 @@ configureExpress(app, passport);
 app.post('/login', users.login);
 app.get('/logout', users.logout);
 app.post('/register', users.register);
-
+app.get('/posts', blogs.getAll);
+app.post('/posts', blogs.postBlog);
 app.get('*', (req, res, next) => {
 	// if we are in production mode then an extension will be provided, usually ".min"
   const minified = process.env.MIN_EXT || '';

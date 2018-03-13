@@ -3,9 +3,17 @@ import { connect } from 'react-redux';
 
 
 import Posts from './Posts.jsx';
+import { getAllPosts } from '../../redux/actions';
+
 
 class PostList extends React.Component {
+  componentDidMount() {
+
+    this.props.getAllPosts();
+  }
+
   render() {
+
     const { posts } = this.props;
 
     return (
@@ -23,6 +31,7 @@ const getVisiblePosts = (
     case '':
       return posts;
     default:
+    debugger;
       return posts.filter((item) => {
         return item.author.toLowerCase().search(filter) !== -1;
       });
@@ -41,6 +50,16 @@ const mapStateToProps = (
   };
 };
 
+const mapDispatchProps = (dispatch) => {
+  return {
+    getAllPosts: () => {
+      dispatch(getAllPosts());
+    }
+  };
+};
+
+
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchProps
 )(PostList);

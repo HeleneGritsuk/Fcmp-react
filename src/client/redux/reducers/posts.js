@@ -1,11 +1,19 @@
+import {
+  MANUAL_SEND_BLOG,
+  SEND_BLOG_SUCCESS,
+  SEND_BLOG_ERROR,
+  GET_POSTS_SUCCESS
+} from '../../../constants';
+
+
 const post = (state, action) => {
   switch (action.type) {
-    case 'ADD_POST':
+    case SEND_BLOG_SUCCESS:
       return {
-        id: action.payload.id,
-        author: action.payload.author,
-        text: action.payload.text,
-        title: action.payload.title
+        author: action.payload.post.author,
+        text: action.payload.post.text,
+        title: action.payload.post.title,
+        id: action.payload.post._id
       };
 
     default:
@@ -15,14 +23,28 @@ const post = (state, action) => {
 
 const posts = (state = [], action) => {
   switch (action.type) {
-    case 'ADD_POST':
+    case GET_POSTS_SUCCESS:
+    
+        const list = action.payload.blogs.map( elem => {
+            return {
+              'author': elem.author,
+              'text': elem.text,
+              'title': elem.title,
+              'id': elem._id
+            }
+        })
+     return list;
+
+    case SEND_BLOG_SUCCESS:
       return [
         ...state,
         post(undefined, action)
       ];
+
     default:
       return state;
   }
 };
+
 
 export default posts;

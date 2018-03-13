@@ -27,7 +27,7 @@ export default (store, history) => {
         <IndexRoute component={MainPage} />
         <Route path='login' component={LoginPage} />
         <Route path='register' component={RegisterPage} />
-        <Route path='posts' component={PostsPage} />
+        <Route path='posts' component={PostsPage} onEnter= {requireAuth}/>
       </Route>
     </Router>
   );

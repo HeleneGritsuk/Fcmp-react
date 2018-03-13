@@ -6,20 +6,7 @@ const ADD_POST = 'ADD_POST';
 const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER';
 
 
-let nextTodoId = 0;
-
-export const addPost = (author, text, title) => {
-  return {
-    type: ADD_POST,
-    payload: {
-      id: nextTodoId++,
-      author,
-      text,
-      title
-    }
-  };
-};
-
+const nextTodoId = 0;
 
 export const setSearchTerm = (text) => {
   return {
@@ -31,6 +18,19 @@ export const setSearchTerm = (text) => {
 
 function beginLogin() {
   return { type: types.MANUAL_LOGIN_USER };
+}
+
+function beginSendBlog() {
+  return { type: types.MANUAL_SEND_BLOG };
+}
+function sendBlogSuccess(data) {
+  return {
+    type: types.SEND_BLOG_SUCCESS,
+    payload: data
+  };
+}
+function sendBlogError() {
+  return { type: types.SEND_BLOG_ERROR };
 }
 
 function loginSuccess(data) {
@@ -154,6 +154,78 @@ export function manualRegister(data) {
   }
 })
 			.catch(response => {
+			    if (response instanceof Error) {
+			      // Something happened in setting up the request that triggered an Error
+			      console.log('Error', response.message);
+			    }
+		    });
+  };
+}
+
+
+export function manualBlogSend(
+		data
+	) {
+  return dispatch => {
+    dispatch(beginSendBlog());
+
+    return makeUserRequest('post', data, '/posts')
+			.then(response => {
+  if (response.data.success) {
+    dispatch(sendBlogSuccess(response.data));
+					// use browserHistory singleton to control navigation. Will generate a
+					// state change for time-traveling as we are using the react-router-redux package
+  } else {
+    dispatch(sendBlogError());
+    const sendBlogMessage = response.data.message;
+
+    return sendBlogMessage;
+  }
+})
+			.catch((response) => {
+			    if (response instanceof Error) {
+			      // Something happened in setting up the request that triggered an Error
+			      console.log('Error', response.message);
+			    }
+		    });
+  };
+}
+
+
+function beginGetPosts() {
+  return { type: types.BEGIN_GET_POSTS };
+}
+function getAllPostsSuccess(data) {
+  debugger;
+  return {
+    type: types.GET_POSTS_SUCCESS,
+    payload: data
+   };
+}
+function getAllPostsError(data) {
+  return {
+    type: types.GET_POSTS_ERROR
+   };
+}
+export function getAllPosts() {
+  return dispatch => {
+    dispatch(beginGetPosts());
+
+    return makeUserRequest('get', '' , '/posts')
+			.then(response => {
+  if (response.data.success) {
+    debugger;
+    dispatch(getAllPostsSuccess(response.data));
+					// use browserHistory singleton to control navigation. Will generate a
+					// state change for time-traveling as we are using the react-router-redux package
+  } else {
+    dispatch(getAllPostsError());
+    const sendBlogMessage = response.data.message;
+
+    return sendBlogMessage;
+  }
+})
+			.catch((response) => {
 			    if (response instanceof Error) {
 			      // Something happened in setting up the request that triggered an Error
 			      console.log('Error', response.message);
