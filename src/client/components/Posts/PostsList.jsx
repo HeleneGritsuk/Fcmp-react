@@ -31,7 +31,6 @@ const getVisiblePosts = (
     case '':
       return posts;
     default:
-    debugger;
       return posts.filter((item) => {
         return item.author.toLowerCase().search(filter) !== -1;
       });

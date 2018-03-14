@@ -4,6 +4,8 @@ const ExtractTextPlugin  = require('extract-text-webpack-plugin');
 const assetsPath = path.join(__dirname, '..', 'public', 'assets');
 const publicPath = '/assets/';
 
+var cssName            = process.env.NODE_ENV === 'production' ? 'styles-[hash].css' : 'styles.css';
+
 module.exports = {
   name: 'browser',
 
@@ -28,9 +30,13 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader')
-      },
+       test: /\.css$/,
+       loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader')
+     },
+     {
+       test: /\.less$/,
+       loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!less-loader')
+     },
       {
         test: /\.jsx?/,
         loader: 'babel',
@@ -56,6 +62,7 @@ module.exports = {
       'process.env': {
         NODE_ENV: JSON.stringify('development')
       }
-    })
+    }),
+     new ExtractTextPlugin(cssName)
   ]
 };

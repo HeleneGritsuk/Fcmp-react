@@ -6,7 +6,7 @@ import Nav from 'react-bootstrap/lib/Nav';
 import Navbar from 'react-bootstrap/lib/Navbar';
 import NavItem  from 'react-bootstrap/lib/NavItem';
 
-// import './bootstrap.css';
+import './bootstrap.css';
 
 class App extends React.Component {
   constructor(props, context) {

@@ -73,6 +73,7 @@ app.get('*', (req, res, next) => {
 	<head>
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 		<title>React-Passport-Redux-Example</title>
+    <link rel="stylesheet" type="text/css" href="/assets/styles.css">
 		<style>
 			body {
 				font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
