@@ -7,19 +7,17 @@ const registerMessageStyle = {
 }
 
 // ----------------------------------------------------
-const Register = React.createClass({
+class Register extends React.Component {
+  constructor(props) {
+      super(props);
+      this.state = {registerMessage: ""};
+  }
 
-	getInitialState: function() {
-		return {
-			registerMessage: ""
-		}
-	},
-
-	_onRegisterSubmit: function(event) {
+	onRegisterSubmit = (event) => {
 		event.preventDefault()
 		const email = ReactDOM.findDOMNode(this.refs.email).value
 		const password = ReactDOM.findDOMNode(this.refs.password).value
-		
+
 		// Passed in via react-redux. Returns a promise.
 		this.props.manualRegister({
 			email,
@@ -30,24 +28,25 @@ const Register = React.createClass({
 				// report to the user is there was a problem during registration
 				this.setState({
 					registerMessage
-				})			
-			}	
-		})		
+				})
+			}
+		})
 
-	},
+	};
 
-	render: function() {
-		return(
+	render() {
+    return(
 			<div>
-				<h2>Register</h2>	
-				<form onSubmit={this._onRegisterSubmit}>		
+				<h2>Register</h2>
+				<form onSubmit={this.onRegisterSubmit}>
 					<input type="email" ref="email" placeholder="Email"/><br/>
-					<input type="password" ref="password" placeholder="Password"/><br/>					
+					<input type="password" ref="password" placeholder="Password"/><br/>
 					<input type="submit" value="Register" /> <span style={registerMessageStyle}>{ this.state.registerMessage }</span>
-				</form>	
+				</form>
 			</div>
-		)	
-	}
-})
+		);
+  }
+
+}
 
 export default Register

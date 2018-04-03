@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should render App correctly 1`] = `
+<div>
+  <nav
+    className="navbar navbar-default"
+  >
+    <div
+      className="container"
+    >
+      <div
+        className="navbar-header"
+      >
+        <a
+          className="navbar-brand"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          Main
+        </a>
+        <button
+          className="navbar-toggle collapsed"
+          onClick={[Function]}
+          type="button"
+        >
+          <span
+            className="sr-only"
+          >
+            Toggle navigation
+          </span>
+          <span
+            className="icon-bar"
+          />
+          <span
+            className="icon-bar"
+          />
+          <span
+            className="icon-bar"
+          />
+        </button>
+      </div>
+      <div
+        aria-expanded={null}
+        className="navbar-collapse collapse"
+      >
+        <ul
+          className="nav navbar-nav"
+          role={null}
+        >
+          <li
+            className=""
+            role="presentation"
+            style={undefined}
+          >
+            <a
+              action="push"
+              href="#"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="button"
+            >
+              Log in
+            </a>
+          </li>
+          <li
+            className=""
+            role="presentation"
+            style={undefined}
+          >
+            <a
+              action="push"
+              href="#"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="button"
+            >
+              Register
+            </a>
+          </li>
+          <li
+            className=""
+            role="presentation"
+            style={undefined}
+          >
+            <a
+              action="push"
+              href="#"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="button"
+            >
+              Posts
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div
+    className="container"
+  />
+</div>
+`;

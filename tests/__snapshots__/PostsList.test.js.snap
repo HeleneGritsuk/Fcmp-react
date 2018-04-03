@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostsList should render list of Posts correctly 1`] = `
+<ul
+  style={
+    Object {
+      "borderTop": "1px solid gray",
+      "padding": "0",
+      "paddingTop": "40px",
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "border": "1px solid #dadada",
+        "borderRadius": "5px",
+        "marginBottom": "15px",
+        "padding": "15px",
+        "width": "300px",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "fontWeight": "bold",
+          "textTransform": "uppercase",
+        }
+      }
+    >
+      Defunct Chinese space lab set to re-enter Earth's atmosphere1
+    </div>
+    <div
+      style={
+        Object {
+          "color": "#8d8d8d",
+          "fontSize": "12px",
+          "fontStyle": "italic",
+          "textAlign": "right",
+        }
+      }
+    >
+      by 
+      THE ASSOCIATED PRESS
+    </div>
+    <div>
+      Text: 
+      China's defunct Tiangong 1 space station is hurtling toward Earth and expected to re-enter the atmosphere within the next day.
+Most of it should burn up on re-entry, so scientists say it poses only a …
+    </div>
+  </div>
+  <div
+    style={
+      Object {
+        "border": "1px solid #dadada",
+        "borderRadius": "5px",
+        "marginBottom": "15px",
+        "padding": "15px",
+        "width": "300px",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "fontWeight": "bold",
+          "textTransform": "uppercase",
+        }
+      }
+    >
+      Defunct Chinese space lab set to re-enter Earth's atmosphere1
+    </div>
+    <div
+      style={
+        Object {
+          "color": "#8d8d8d",
+          "fontSize": "12px",
+          "fontStyle": "italic",
+          "textAlign": "right",
+        }
+      }
+    >
+      by 
+      ABC News
+    </div>
+    <div>
+      Text: 
+      The computer expert who alleges a trove of Facebook data was improperly used to help Donald Trump's White House bid says he strongly believes the
+    </div>
+  </div>
+</ul>
+`;
