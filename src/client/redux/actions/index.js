@@ -14,77 +14,77 @@ export const setSearchTerm = (text) => {
   };
 };
 
-const beginLogin = () => {
+export const beginLogin = () => {
   return {
     type: types.MANUAL_LOGIN_USER
   };
 }
 
-const beginSendBlog = () => {
+export const beginSendBlog = () => {
   return {
     type: types.MANUAL_SEND_BLOG
   };
 }
 
-const sendBlogSuccess = (data) => {
+export const sendBlogSuccess = (data) => {
   return {
     type: types.SEND_BLOG_SUCCESS,
     payload: data
   };
 }
 
-const sendBlogError = () => {
+export const sendBlogError = () => {
   return {
     type: types.SEND_BLOG_ERROR
   };
 }
 
-const loginSuccess = (data) => {
+export const loginSuccess = (data) => {
   return {
     type: types.LOGIN_SUCCESS_USER,
     data
   };
 }
 
-const loginError = () => {
+export const loginError = () => {
   return {
     type: types.LOGIN_ERROR_USER
   };
 }
 
 // "Log Out" action creators
-const beginLogout = () => {
+export const beginLogout = () => {
   return {
     type: types.LOGOUT_USER
   };
 }
 
-const logoutSuccess = () => {
+export const logoutSuccess = () => {
   return {
     type: types.LOGOUT_SUCCESS_USER
   };
 }
 
-const logoutError = () => {
+export const logoutError = () => {
   return {
     type: types.LOGOUT_ERROR_USER
   };
 }
 
 // "Register" action creators
-const beginRegister = () => {
+export const beginRegister = () => {
   return {
     type: types.REGISTER_USER
   };
 }
 
-const registerSuccess = () => {
+export const registerSuccess = () => {
   return {
     type: types.REGISTER_SUCCESS_USER
   };
 }
 
-const registerError = () => {
+export const registerError = () => {
   return {
     type: types.REGISTER_ERROR_USER
   };
@@ -112,6 +112,7 @@ export const manualLogin = (
       .then(response => {
         if (response.data.success) {
           dispatch(loginSuccess(data));
+          debugger;
           // use browserHistory singleton to control navigation. Will generate a
           // state change for time-traveling as we are using the react-router-redux package
           browserHistory.push(successPath);
